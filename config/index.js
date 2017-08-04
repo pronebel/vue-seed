@@ -19,11 +19,11 @@ module.exports = {
   test: {
     template:htmlTemplatePath,
     env: require('./test.env.js'),
-    index: path.resolve(__dirname, '../docker/test/hammer/'+moduleTargetName+'.html'),
-    assetsRoot: path.resolve(__dirname, '../docker/test/hammer/'),
+    index: path.resolve(__dirname, '../docker/test/'+moduleTargetName+'.html'),
+    assetsRoot: path.resolve(__dirname, '../docker/test/'),
     assetsSubDirectory: moduleTargetName,
 
-    assetsPublicPath: 'http://localhost:3000/hammer/',
+    assetsPublicPath: 'http://localhost:3000/',
 
     productionSourceMap: true,
 
@@ -32,11 +32,11 @@ module.exports = {
   build: {
     template:htmlTemplatePath,
     env: require('./prod.env.js'),
-    index: path.resolve(__dirname, '../docker/dests/hammer/'+moduleTargetName+'.html'),
-    assetsRoot: path.resolve(__dirname, '../docker/dests/hammer/'),
+    index: path.resolve(__dirname, '../docker/dests/'+moduleTargetName+'.html'),
+    assetsRoot: path.resolve(__dirname, '../docker/dests/'),
     assetsSubDirectory: moduleTargetName,
 
-    assetsPublicPath: 'http://wx.life.cntaiping.com/hammer/',
+    assetsPublicPath: 'http://wx.life.cntaiping.com/',
 
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
