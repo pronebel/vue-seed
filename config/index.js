@@ -36,7 +36,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../docker/dests/'),
     assetsSubDirectory: moduleTargetName,
 
-    assetsPublicPath: 'http://wx.life.cntaiping.com/',
+    assetsPublicPath: 'http://wx.xxxxxx.com/',
 
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
