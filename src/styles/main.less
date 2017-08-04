@@ -1,0 +1,129 @@
+@import '~nb-styles/less/reset/_normalize';
+@import '~nb-styles/less/reset/_reset';
+@import '~nb-styles/less/tools/index';
+@import "common/reset";
+
+
+
+@import "./fn/fn";
+
+
+
+
+
+
+
+
+//按产品查看
+/**--end-- **/
+
+/**begin 产品查看模块部分**/
+.product {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  span {
+    .height(16px);
+    .width(4px);
+    background-color: #FF6F40;
+    .margin-right(5px);
+  }
+  .height(48px);
+  color: #222222;
+  .font-dpr(16px);
+}
+
+
+
+.classtic {
+  .font-dpr(15px);
+  span {
+    color: #222;
+  }
+  .safe {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+
+
+.safe {
+  .height(40px);
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .font-dpr(15px);
+  }
+  .format-number{
+    .font-dpr(16px) !important;
+  }
+}
+
+
+
+
+
+
+.cont-empty {
+  .padding-top(36px);
+  .padding-bottom(36px);
+  text-align: center;
+  .font-dpr(15px);
+  color: #767676;
+}
+
+/**end**/
+
+
+
+
+
+
+
+.d-title {
+  color: #FF6F40;
+  text-align: center;
+  .font-dpr(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after,&:before{
+    content:' ';
+    display: inline-block;
+
+    height: 2px;
+    .width(30px);
+  }
+  &:after {
+    .margin-left(8px);
+    background-image: linear-gradient(-90deg, rgba(248,248,248,0.00) 3%, #FF6F40 100%);
+  }
+  &:before {
+    .margin-right(8px);
+    background-image: linear-gradient(90deg, rgba(248,248,248,0.00) 0%, #FF6F40 100%);
+  }
+  .pi-content {
+    line-height: 1.2;
+    span{
+      display:block;
+    }
+  }
+}
+
+.chart-range{
+  background: #FFFFFF;
+  border: 1px solid #F3F3F3;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+
+
+  .padding(15px);
+  .padding-top(0);
+}
+

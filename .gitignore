@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+dist/
+dests/
+docker/dests/
+docker/test/
+.idea/
+mochawesome-reports
+npm-debug.log
+/mocks/edit.json
+/test/mochawesome-report/

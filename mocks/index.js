@@ -1,0 +1,10 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+var dataA = require('./data/a')
+
+
+module.exports = {
+
+  '/test/a': function (req, res) {
+    res.json(dataA())
+  }
+}
