@@ -57,10 +57,8 @@ module.exports = {
     proxyTable: {
 
       '/iv/**':{
-        //target:'http://10.1.16.23:8082/hammerInterface/'
-        //target:'http://10.1.16.22:8082/hammerInterface/'
-        target:'http://localhost:8080/hammerInterface/'
-        //target:'http://10.1.16.21:19000/hammerInterface/'
+        target:'http://localhost:8080/test/'
+
       }
     },
     mocker:!true,

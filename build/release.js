@@ -13,10 +13,7 @@ var proxyMiddleware = require('http-proxy-middleware')
 var proxyTable =  {
 
   '/iv/**':{
-    //target:'http://10.1.16.23:8082/hammerInterface/'
-    //target:'http://10.1.16.22:8082/hammerInterface/'
     target:'http://localhost:8080/hammerInterface/'
-    //target:'http://10.1.16.22:8092/hammerInterface/'
   }
 }
 Object.keys(proxyTable).forEach(function (context) {

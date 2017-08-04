@@ -2,15 +2,11 @@ import Vue from 'vue'
 import Promise from 'promise'
 import Cache from './cache'
 import { METHOD, ContentType, GET_SYSTEM_INFO } from './config'
-import { Track,TrackBiz } from 'utils/libs/tongji'
+
 
 import {join as urlJoin} from 'nb-js/libs/url/join'
 
-import AjaxLoading from 'utils/help/loading'
 
-import MessageBox from 'mint-ui/lib/message-box'
-
-import auth from './auth'
 import { codeCheck } from './code'
 
 let getApiUrl = (apiUrl, url) => {
@@ -141,7 +137,7 @@ export let createApi = (opts) => {
   let silent = opts.silent === undefined ? false : !!opts.silent
 
   if (loadingBar) {
-    AjaxLoading.show('加载中...')
+    //AjaxLoading.show('加载中...')
   }
 
   var promise = new Promise(function (resolve, reject) {
@@ -154,13 +150,13 @@ export let createApi = (opts) => {
         resolve(resp)
       } else {
         window.ajaxQueue.remove(cacheKey)
-        //MessageBox.alert(resp.errorDesc)
+
 
         if (codeCheck.isNoLogin(resp.errorValue)) {
           auth.clear()
           window.location.href = '#/login'
         } else {
-          TrackBiz.jsEvent("RESPONSE_ERROR",msgId,resp.errorDesc)
+
           reject({response, msgId})
         }
       }
@@ -174,11 +170,7 @@ export let createApi = (opts) => {
       let status = response.status;
       let bodyData = response.body || {}
 
-      if(bodyData.exception){
-        TrackBiz.jsEvent(status,bodyData.exception,bodyData.path);
-      }else if(bodyData.errorValue){
-        TrackBiz.jsEvent(status,bodyData.errorValue,bodyData.errMsg);
-      }
+
 
 
       if (loadingBar) {
@@ -193,17 +185,17 @@ export let createApi = (opts) => {
 
 
       if (status == '504') {
-        MessageBox.alert('网络连接超时')
+        //MessageBox.alert('网络连接超时')
       } else if (status == '401') {
         if(bodyData.errorValue=='2130'){
           //MessageBox.alert('没有查询权限')
           location.href='#/401'
         }else{
           auth.clear()
-          MessageBox.alert('请重新从微信菜单登录')
+          //MessageBox.alert('请重新从微信菜单登录')
         }
       } else if (status == '500') {
-        MessageBox.alert('服务器报错,请联系系统管理员')
+        //MessageBox.alert('服务器报错,请联系系统管理员')
         reject({response, msgId})
       } else {
         reject({response, msgId})
