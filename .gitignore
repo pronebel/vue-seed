@@ -2,10 +2,10 @@
 node_modules/
 dist/
 dests/
-docker/dests/
-docker/test/
+dests/dests/
+dests/test/
 .idea/
 mochawesome-reports
 npm-debug.log
-/mocks/edit.json
+/build/mocks/edit.json
 /test/mochawesome-report/
