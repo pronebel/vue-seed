@@ -15,7 +15,7 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config/index')
-var modConfig = require('../mods/config')
+var modConfig = require('../entry/config')
 var webpackConfig = require('../packs/webpack.test.conf')
 
 var spinner = ora('test for production...')

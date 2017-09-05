@@ -5,7 +5,7 @@ var ProdEnv = require('./prod.env.js')
 
 var moduleName = process.env.MODULE_NAME || 'demo';
 var modulePath = process.env.MODULE_PATH || 'entry/demo';
-var moduleConfig = require("../mods/"+moduleName+".config")
+var moduleConfig = require("../entry/"+moduleName+".config")
 var DateVersion = new Date();
 
 var version = process.env.APP_VERSION=='undefined' ? (DateVersion.getMonth()+1)+""+DateVersion.getDate() : process.env.APP_VERSION ;
