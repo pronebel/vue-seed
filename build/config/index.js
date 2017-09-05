@@ -2,10 +2,10 @@
 var path = require('path')
 var merge = require('webpack-merge')
 var ProdEnv = require('./prod.env.js')
-var modsConfig = require("../mods/config")
+
 var moduleName = process.env.MODULE_NAME || 'demo';
 var modulePath = process.env.MODULE_PATH || 'entry/demo';
-
+var moduleConfig = require("../mods/"+moduleName+".config")
 var DateVersion = new Date();
 
 var version = process.env.APP_VERSION=='undefined' ? (DateVersion.getMonth()+1)+""+DateVersion.getDate() : process.env.APP_VERSION ;
@@ -15,8 +15,6 @@ var htmlTemplatePath = 'src/template/index.tpl.html';
 var splitModule= modulePath.split("\/");
 var moduleTargetName = splitModule[splitModule.length-1]+version;
 
-
-var moduleConfig = modsConfig[moduleName]
 
 
 

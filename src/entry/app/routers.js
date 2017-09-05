@@ -1,24 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
-import store from 'flux'
-
-
+import store from 'common/stores'
 Vue.use(VueRouter)
-
-import routerCommom from '../../modules/fundament/routers/router'
-import routerOauth from '../../modules/oauth/routers/router'
-import routerSeed from '../../modules/demo/routers/router'
+import router_fundament from '../../modules/fundament/routers/router'
 
 
 
 let defRouter = [
+
 ]
 
 let routerMap = [
-  ...routerCommom,
-  ...routerOauth,
-  ...routerSeed,
+  ...router_fundament,
   ...defRouter
 ]
 
@@ -32,22 +26,11 @@ const router = new VueRouter({
 
 let indexScrollTop = 0
 router.beforeEach(function (to, from, next) {
-
-
-
-  //loading.show('加载中...')
-
   if (to.path !== '/') {
     indexScrollTop = document.body.scrollTop
   }
   if ((to.matched.some(record => record.meta.requiresAuth))) {
-    //if (!Auth.getToken()) {
-      next({
-        path: '/login'
-      })
-    //} else {
-    //  setTimeout(next, 50)
-    //}
+      setTimeout(next, 50)
   } else {
     setTimeout(next, 50)
   }
@@ -55,7 +38,6 @@ router.beforeEach(function (to, from, next) {
 
 router.afterEach(route => {
 
-  //loading.close()
   if (route.path !== '/') {
     document.body.scrollTop = 0
   } else {
@@ -65,6 +47,6 @@ router.afterEach(route => {
   }
 })
 
-sync(store, router)
+sync(store, router);
 
-export default router
+export default router;

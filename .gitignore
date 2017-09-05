@@ -1,11 +1,8 @@
 .DS_Store
 node_modules/
-dist/
-dests/
-dests/dests/
+dests/prod/
 dests/test/
 .idea/
 mochawesome-reports
 npm-debug.log
 /build/mocks/edit.json
-/test/mochawesome-report/
