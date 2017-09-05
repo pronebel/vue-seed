@@ -16,6 +16,8 @@ var splitModule= modulePath.split("\/");
 var moduleTargetName = splitModule[splitModule.length-1]+version;
 
 
+console.log(moduleConfig)
+
 
 
 function assembleIndexPath(env,mod,targetName){
