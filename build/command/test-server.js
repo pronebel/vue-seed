@@ -15,13 +15,13 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config/index')
-var modConfig = require('../entry/config')
+var moduleConfig = require("../entry/"+moduleName+".config")
 var webpackConfig = require('../packs/webpack.test.conf')
 
 var spinner = ora('test for production...')
 spinner.start()
 
-rm(path.join(config.test.assetsRoot, config.test.assetsSubDirectory), err => {
+rm(path.join(config.test.outputRoot, config.test.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
@@ -39,7 +39,7 @@ rm(path.join(config.test.assetsRoot, config.test.assetsSubDirectory), err => {
 
     var app = express();
 
-    var proxyTable = modConfig[moduleName].test.proxy;
+    var proxyTable = moduleConfig.test.proxy;
     Object.keys(proxyTable).forEach(function (context) {
       var options = proxyTable[context]
       if (typeof options === 'string') {

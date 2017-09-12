@@ -1,55 +1,37 @@
-var path = require('path')
+
 var utils = require('./utils')
 var config = require('../config/index')
+var packConfig = require('../config/pack')
 var vueLoaderConfig = require('./vue-loader.conf')
-
-console.log(__dirname)
-function resolve (dir) {
-  return path.join(__dirname, '../../', dir)
-}
-
-
 
 
 module.exports = {
   entry: config.entrys,
   output: {
-    path: config.build.assetsRoot,
+    path: config.build.outputRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : (process.env.NODE_ENV === 'test'?config.test.assetsPublicPath :config.dev.assetsPublicPath)
   },
+  externals: {
+    'wx': 'jWeixin'
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'moment$': 'nb-js/vendor/momentjs/moment.js',
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      'src': resolve('src'),
-      'styles': resolve('src/styles'),
-      'assets': resolve('src/assets'),
-      'common': resolve('src/common'),
-      'components': resolve('src/common/components'),
-      'bizs': resolve('src/common/components/bizs'),
-      'widgets': resolve('src/common/components/widgets'),
-      'filters': resolve('src/common/filters'),
-      'utils': resolve('src/common/utils'),
-      'apis': resolve('src/apis'),
-      'flux': resolve('src/common/flux')
-    }
+    alias:packConfig.alias
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src'), resolve('test')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter')
-      //   }
-      // },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: packConfig.eslintPath,
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -58,10 +40,9 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'),resolve('node_modules/nb-js/libs'),resolve('node_modules/mint-ui/src')]
+        include: packConfig.babelCompilePath
       },
       {
-        //test: /.*\.(gif|png|jpe?g|svg)$/i,
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: [
           {

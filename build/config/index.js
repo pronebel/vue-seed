@@ -16,8 +16,6 @@ var splitModule= modulePath.split("\/");
 var moduleTargetName = splitModule[splitModule.length-1]+version;
 
 
-console.log(moduleConfig)
-
 
 
 function assembleIndexPath(env,mod,targetName){
@@ -36,8 +34,8 @@ module.exports = {
   test: {
     template:htmlTemplatePath,
     env: require('./test.env.js'),
-    index: assembleIndexPath("test",moduleName,"index"),
-    assetsRoot: assembleAssetRoot("test",moduleName),
+    index: assembleIndexPath("test",moduleName,moduleTargetName),
+    outputRoot: assembleAssetRoot("test",moduleName),
     assetsSubDirectory: moduleTargetName,
 
     assetsPublicPath: '/',
@@ -54,7 +52,7 @@ module.exports = {
       API_PATH:moduleConfig.prod.apiPath
     }),
     index: assembleIndexPath("prod",moduleName,moduleTargetName),
-    assetsRoot: assembleAssetRoot("prod",moduleName),
+    outputRoot: assembleAssetRoot("prod",moduleName),
     assetsSubDirectory: moduleTargetName,
     assetsPublicPath: moduleConfig.prod.assetsPath,
 

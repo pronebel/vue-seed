@@ -20,7 +20,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.test.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.test.assetsRoot,
+    path: config.test.outputRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
@@ -85,14 +85,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../../static'),
-        to: config.test.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+
   ]
 })
 
