@@ -37,12 +37,8 @@ module.exports = {
     index: assembleIndexPath("test",moduleName,moduleTargetName),
     outputRoot: assembleAssetRoot("test",moduleName),
     assetsSubDirectory: moduleTargetName,
-
     assetsPublicPath: '/',
-
     productionSourceMap: true,
-
-
   },
   build: {
 

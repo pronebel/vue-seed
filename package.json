@@ -10,13 +10,13 @@
     "test": "node build/command/test-server.js"
   },
   "dependencies": {
-
     "fastclick": "^1.0.6",
     "fecha": "^2.3.1",
     "lodash": "^4.17.4",
     "lodash.throttle": "^4.1.1",
     "promise": "^8.0.1",
     "store": "^2.0.12",
+    "stylus-px2rem": "^1.0.14",
     "vue": "^2.4.2",
     "vue-lazyload": "^1.0.6",
     "vue-popup": "^0.2.14",
@@ -87,6 +87,7 @@
     "shelljs": "^0.7.8",
     "should": "^11.2.1",
     "style-loader": "^0.18.2",
+    "stylus-loader": "^3.0.1",
     "superagent": "^3.5.2",
     "supertest": "^3.0.0",
     "url-loader": "^0.5.9",
@@ -98,7 +99,6 @@
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0",
     "yargs-parser": "^7.0.0"
-
   },
   "engines": {
     "node": ">= 4.0.0",

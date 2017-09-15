@@ -5,8 +5,6 @@ import store from 'common/stores'
 Vue.use(VueRouter)
 import router_fundament from '../../modules/fundament/routers/router'
 
-
-
 let defRouter = [
 
 ]
